@@ -35,3 +35,4 @@ user_choice = ""
 while user_choice != "xxx":
     
     # asks
+    xxx = "efefa"
