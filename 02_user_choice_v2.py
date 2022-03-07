@@ -1,6 +1,7 @@
-def choice_checker(question):
+# V2 - error message included when calling funtion
 
-    error = "Please choose from rock / paper / scissors (or xxx to quit)"
+# functions
+def choice_checker(question, error):
 
     valid = False
     while not valid:
@@ -38,7 +39,7 @@ user_choice = ""
 while user_choice != "xxx":
     
     # asks user for choice and check if valid
-    user_choice = choice_checker("Choose rock / paper / scissors (r/p/s): ")
+    user_choice = choice_checker("Choose rock / paper / scissors (r/p/s): ", "please choose from rock / paper / scissors (or xxx to quit")
 
     # print out choice for comparison purposes
     print("you chose {}".format(user_choice))

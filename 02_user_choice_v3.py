@@ -1,10 +1,12 @@
-def choice_checker(question):
+# V3 - checks that response is in a given list
 
-    error = "Please choose from rock / paper / scissors (or xxx to quit)"
+# functions
+def choice_checker(question, valid_list ,error):
 
     valid = False
     while not valid:
-
+        
+        rps_list = {}
         rock = ["rock", "r"]
         paper = ["paper", "p"]
         scissors = ["scissors", "s"]
@@ -38,7 +40,7 @@ user_choice = ""
 while user_choice != "xxx":
     
     # asks user for choice and check if valid
-    user_choice = choice_checker("Choose rock / paper / scissors (r/p/s): ")
+    user_choice = choice_checker("Choose rock / paper / scissors (r/p/s): ", "please choose from rock / paper / scissors (or xxx to quit")
 
     # print out choice for comparison purposes
     print("you chose {}".format(user_choice))
