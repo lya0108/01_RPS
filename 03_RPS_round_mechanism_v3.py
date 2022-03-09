@@ -1,3 +1,6 @@
+# less repeated code / more efficient
+# exit 'xxx' is available for both modes
+
 def check_rounds():
     while True:
 
@@ -35,16 +38,14 @@ while end_game == "no":
     print()
     if rounds == "":
         heading = "Continuous Mode: Round {}".format(rounds_played + 1)
-        print(heading)
-        choose = input("{} or 'xxx' to end: ".format(choose_instructions))
-        if choose == "xxx":
-            break
     else:
         heading = "Round {} of {}".format(rounds_played + 1, rounds)
-        print(heading)
-        choose = input(choose_instructions)
-        if rounds_played == rounds - 1:
-            end_game = "yes"
+
+    print(heading)
+    choose = input("{} or 'xxx' to end: ".format(choose_instructions))
+
+    if choose == "xxx":
+        break
 
     # rest of loop
     print("You chose {}".format(choose))
