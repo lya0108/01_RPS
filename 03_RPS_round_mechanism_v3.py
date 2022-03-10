@@ -6,7 +6,7 @@ def check_rounds():
 
         response = input("How many rounds: ")
 
-        round_error = "Please type either <enter> or an integer that is more than 0"
+        round_error = "Please type either <enter> or an integer more than 0"
         
         if response != "":
             try:
@@ -14,10 +14,12 @@ def check_rounds():
 
                 if response < 1:
                     print(round_error)
+                    print()
                     continue
 
             except ValueError:
                 print(round_error)
+                print()
                 continue
 
         return response
@@ -46,7 +48,16 @@ while end_game == "no":
 
     if choose == "xxx":
         break
+    
+    elif choose == "r":
+        choose = "rock"
 
+    elif choose == "p":
+        choose = "paper"
+
+    elif choose == "s":
+        choose = "scissors"
+    
     # rest of loop
     print("You chose {}".format(choose))
 

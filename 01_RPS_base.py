@@ -36,7 +36,7 @@ def choice_checker(question, valid_list ,error):
 
         for item in valid_list:
             if response == item[0] or response == item:
-                return response
+                return item
         
         print(error)
         print()
@@ -54,7 +54,6 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # asks user for # of rounds then loop...
 rounds_played = 0
-choose_instructions = "Please choose rock (r), paper (p), scissors (s)"
 
 # ask user for # number of rounds, <enter> for infinite mode
 rounds = check_rounds()
@@ -70,10 +69,8 @@ while end_game == "no":
         heading = "Round {} of {}".format(rounds_played + 1, rounds)
 
     print(heading)
-    choose_instructions = "Please choose rock (r), paper (p), scissors (s) (or 'xxx' to exit) "
+    choose_instructions = "Please choose rock (r), paper (p), scissors (s)\n or 'xxx' to exit "
     choose_error = "Please choose from rock / paper / scissors (or 'xxx to exit)"
-    
-    choose = input("{} or 'xxx' to end: ".format(choose_instructions))
 
     # asks user for choice and check if valid
     choose = choice_checker(choose_instructions, rps_list, choose_error)
@@ -94,3 +91,6 @@ while end_game == "no":
 
 # ask user if they want to see their game history
 # if 'yes' show game history
+
+# end
+print("Thank you for playing")
