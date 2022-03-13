@@ -4,7 +4,7 @@ import random
 def check_rounds():
     while True:
 
-        response = input("How many rounds: ")
+        response = input("Rounds: ")
 
         round_error = "Please type either <enter> for Endless mode\n or an integer that is more than 0"
         # check rounds is an integer more than 0 for finite mode
@@ -41,8 +41,27 @@ def choice_checker(question, valid_list ,error):
         print(error)
         print()
 
+def decorator(text, decoration, lines):
+
+    ends = decoration * 5
+    statement = "{} {} {}".format(ends, text, ends)
+    text_length = len(statement)
+
+    if lines == "3":
+        print(decoration * text_length)
+        print(statement)
+        print(decoration * text_length)
+        return ""
+
+    elif lines == "1":
+        print(statement)
+        return ""
+    else:
+        return ""
 
 # main routine
+
+decorator("Please pick how many rounds you want\nor press <enter> for endless mode", "=", "1") 
 
 # lists of valid responses
 yes_no_list = ["yes", "no"]
@@ -69,7 +88,7 @@ while end_game == "no":
         heading = "Round {} of {}".format(rounds_played + 1, rounds)
 
     print(heading)
-    choose_instructions = "Please choose rock (r), paper (p), scissors (s)\n or 'xxx' to exit "
+    choose_instructions = "Please choose rock (r), paper (p), scissors (s)\nor 'xxx' to exit\n"
     choose_error = "Please choose from rock / paper / scissors (or 'xxx to exit)"
 
     # asks user for choice and check if valid
