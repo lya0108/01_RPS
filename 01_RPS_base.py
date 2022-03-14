@@ -94,6 +94,9 @@ while end_game == "no":
     # asks user for choice and check if valid
     choose = choice_checker(choose_instructions, rps_list, choose_error)
 
+    # get computer choice
+    comp_choice = random.choice(rps_list[:-1])
+    print("Computer Choose", comp_choice)
 
     if choose == "xxx":
         break
