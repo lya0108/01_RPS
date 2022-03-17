@@ -98,11 +98,30 @@ while end_game == "no":
     comp_choice = random.choice(rps_list[:-1])
     print("Computer Choose", comp_choice)
 
+    # Compare choices
+    user_choice = choose
+    print("You chose {} and the computer chose {}".format(user_choice, comp_choice))
+            
+    if user_choice == comp_choice:
+                print("You got a tie")
+
+    elif user_choice == "rock" and comp_choice == "scissors":
+                print("You won POG")
+
+    elif user_choice == "paper" and comp_choice == "rock":
+                print("You won POG")
+
+    elif user_choice == "scissors" and comp_choice == "paper":
+                print("You won POG")
+
+    else:
+                print("Lost to bot Omegalul")
+
+    # End game if exit code is typed
     if choose == "xxx":
         break
 
     # rest of loop
-    print("You chose {}".format(choose))
 
     rounds_played += 1
 

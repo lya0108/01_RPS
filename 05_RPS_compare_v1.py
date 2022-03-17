@@ -5,42 +5,32 @@ for item in rps_list:
     user_index = 0
     for item in rps_list:
         user_choice = rps_list[user_index]
-        comp_choice = rps_list[user_index]
+        comp_choice = rps_list[comp_index]
         user_index += 1
 
-        # compare options
-        valid = False
-        while not valid:
-            outcome = 0
+        # 
+        print("{} vs {}".format(user_choice, comp_choice))
+        if user_choice == comp_choice:
+            print("You got a tie")
+
+        elif user_choice == "rock" and comp_choice == "scissors":
+            print("You won")
+
+        elif user_choice == "paper" and comp_choice == "rock":
+            print("You won")
+
+        elif user_choice == "scissors" and comp_choice == "paper":
+            print("You won")
+
+        else:
+            print("Lost to bot")
             
-            # user
-            if user_choice == "rock":
-                outcome += 3
-
-            elif user_choice == "scissors":
-                outcome += 2
-
-            elif user_choice == "paper":
-                outcome += 1
-            
-            else:
-                print("Please pick rock, paper, or scissors")
-                continue
-
-            # computer
-            if comp_choice == "rock":
-                outcome -= 3
-
-            elif comp_choice == "paper":
-                outcome -= 2
-
-            else:
-                outcome -= 1
-            
-            if outcome == 0:
-                print("You got a tie")
         
-        enter = input("You chose {}".format(user_choice))
-        if enter == "":
-            print("The computer got {}".format(comp_choice))
-            print("")
+        # enter = input("You chose {}".format(user_choice))
+        # if enter == "":
+        #     print("The computer got {}".format(comp_choice))
+        #     print("")
+
+
+
+            # \x1b[0m
