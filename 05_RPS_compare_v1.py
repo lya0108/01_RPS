@@ -23,7 +23,7 @@ for item in rps_list:
             print("You won")
 
         else:
-            print("Lost to bot")
+            print("Lost to bot Omegalul")
             
         
         # enter = input("You chose {}".format(user_choice))

@@ -94,28 +94,30 @@ while end_game == "no":
     # asks user for choice and check if valid
     choose = choice_checker(choose_instructions, rps_list, choose_error)
 
+    print("You Chose", user_choice)
+
     # get computer choice
     comp_choice = random.choice(rps_list[:-1])
-    print("Computer Choose", comp_choice)
+    input("Computer Choose", comp_choice )
 
     # Compare choices
     user_choice = choose
-    print("You chose {} and the computer chose {}".format(user_choice, comp_choice))
-            
+    
+    # \x1b[0m
     if user_choice == comp_choice:
-                print("You got a tie")
+        print("\x1b[93mYou got a Tie\x1b[0m")
 
     elif user_choice == "rock" and comp_choice == "scissors":
-                print("You won POG")
+        print("\x1b[92mYou Won\x1b[0m")
 
     elif user_choice == "paper" and comp_choice == "rock":
-                print("You won POG")
+        print("\x1b[92mYou Won\x1b[0m")
 
     elif user_choice == "scissors" and comp_choice == "paper":
-                print("You won POG")
+        print("\x1b[92mYou Won\x1b[0m")
 
     else:
-                print("Lost to bot Omegalul")
+        print("\x1b[91mLost to bot\x1b[0m")
 
     # End game if exit code is typed
     if choose == "xxx":
