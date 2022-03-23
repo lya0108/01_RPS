@@ -4,7 +4,7 @@ import random
 def check_rounds():
     while True:
 
-        response = input("Rounds: ")
+        response = input("\nRounds: ")
 
         round_error = "Please type either <enter> for Endless mode\n or an integer that is more than 0"
         # check rounds is an integer more than 0 for finite mode
@@ -53,15 +53,21 @@ def decorator(text, decoration, lines):
         print(decoration * text_length)
         return ""
 
+    elif lines == "2":
+        print("|",statement,"|")
+
     elif lines == "1":
         print(statement)
         return ""
+
     else:
         return ""
 
 # main routine
+print("\x1b[96m")
 
-decorator("Please pick how many rounds you want\nor press <enter> for endless mode", "=", "1") 
+decorator("Please pick how many rounds you want", "=", "2")
+decorator(" or press <enter> for endless mode  ", "=", "2") 
 
 # lists of valid responses
 yes_no_list = ["yes", "no"]
@@ -94,34 +100,40 @@ while end_game == "no":
     # asks user for choice and check if valid
     choose = choice_checker(choose_instructions, rps_list, choose_error)
 
+    user_choice = choose 
+
+    if user_choice == "xxx":
+        break
+
     print("You Chose", user_choice)
-
-    # get computer choice
-    comp_choice = random.choice(rps_list[:-1])
-    input("Computer Choose", comp_choice )
-
-    # Compare choices
-    user_choice = choose
-    
-    # \x1b[0m
-    if user_choice == comp_choice:
-        print("\x1b[93mYou got a Tie\x1b[0m")
-
-    elif user_choice == "rock" and comp_choice == "scissors":
-        print("\x1b[92mYou Won\x1b[0m")
-
-    elif user_choice == "paper" and comp_choice == "rock":
-        print("\x1b[92mYou Won\x1b[0m")
-
-    elif user_choice == "scissors" and comp_choice == "paper":
-        print("\x1b[92mYou Won\x1b[0m")
-
-    else:
-        print("\x1b[91mLost to bot\x1b[0m")
 
     # End game if exit code is typed
     if choose == "xxx":
         break
+
+    # get computer choice
+    comp_choice = random.choice(rps_list[:-1])
+    print("Computer Chose", comp_choice)
+
+    # Compare choices
+    
+    # \x1b[0m (code for color)
+    if user_choice == comp_choice:
+        print("\x1b[93mYou got a Tie\x1b[96m")
+
+    elif user_choice == "rock" and comp_choice == "scissors":
+        print("\x1b[92mYou Won\x1b[96m")
+
+    elif user_choice == "paper" and comp_choice == "rock":
+        print("\x1b[92mI lost? :sadge:\x1b[96m")
+
+    elif user_choice == "scissors" and comp_choice == "paper":
+        print("\x1b[92mYou Won\x1b[96m")
+
+    else:
+        print("\x1b[91mLost to bot :OMEGALUL:\x1b[96m")
+
+ 
 
     # rest of loop
 
