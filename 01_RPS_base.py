@@ -3,10 +3,12 @@ import random
 # functions
 def check_rounds():
     while True:
-
+        
+        print()
+        print("Odd Number of Rounds Recommended")
         response = input("\nRounds: ")
 
-        round_error = "Please type either <enter> for Endless mode\n or an integer that is more than 0"
+        round_error = "Please Type Either [enter] for Endless Mode\n or an Integer That is More Than 0"
         # check rounds is an integer more than 0 for finite mode
         if response != "":
             try:
@@ -79,9 +81,12 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # asks user for # of rounds then loop...
 rounds_played = 0
+rounds_lost = 0
+rounds_drawn = 0
 
 # ask user for # number of rounds, <enter> for infinite mode
 rounds = check_rounds()
+
 
 end_game = "no"
 while end_game == "no":
@@ -119,22 +124,27 @@ while end_game == "no":
     
     # \x1b[0m (code for color)
     if user_choice == comp_choice:
-        print("\x1b[93mYou got a Tie\x1b[96m")
+        print("\x1b[93mStop Copying Me!\x1b[96m")
+        rounds_drawn += 1
+        result = 0
 
     elif user_choice == "rock" and comp_choice == "scissors":
-        print("\x1b[92mYou Won\x1b[96m")
+        result = 1
 
     elif user_choice == "paper" and comp_choice == "rock":
-        print("\x1b[92mI lost? :sadge:\x1b[96m")
+        result = 1
 
     elif user_choice == "scissors" and comp_choice == "paper":
-        print("\x1b[92mYou Won\x1b[96m")
+        result = 1
 
     else:
-        print("\x1b[91mLost to bot :OMEGALUL:\x1b[96m")
-
- 
-
+        print("\x1b[91mLost To Bot :OMEGALUL:\x1b[96m")
+        rounds_lost += 1
+        result = 0
+    
+    if result == 1:
+        print("\x1b[92mYou Got A Win Calm Down\x1b[96m")
+        
     # rest of loop
 
     rounds_played += 1
@@ -147,5 +157,18 @@ while end_game == "no":
 # ask user if they want to see their game history
 # if 'yes' show game history
 
-# end
-print("Thank you for playing")
+# show game stats
+# quick calculations
+rounds_won = rounds_played - rounds_lost - rounds_drawn
+
+# end of game
+print()
+print("***** End Game Summary *****")
+print("Won: {} | Lost: {} | Draw: {}".format(rounds_won, rounds_lost, rounds_drawn))
+if rounds_lost > rounds_won:
+    print("SO BAD")
+elif rounds_won > rounds_lost:
+    print("I'm Set To Easy Mode")
+print()
+print("I Had Fun \nBye")
+print()
