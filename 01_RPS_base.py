@@ -126,7 +126,6 @@ while end_game == "no":
     if user_choice == comp_choice:
         print("\x1b[93mStop Copying Me!\x1b[96m")
         rounds_drawn += 1
-        result = 0
 
     elif user_choice == "rock" and comp_choice == "scissors":
         result = 1
@@ -138,13 +137,30 @@ while end_game == "no":
         result = 1
 
     else:
-        print("\x1b[91mLost To Bot :OMEGALUL:\x1b[96m")
+        for item in range (0, 1):
+            number = random.randint(1, 3)
+            if number == 1:
+                print("\x1b[91mLost To Bot :OMEGALUL:\x1b[96m")
+
+            elif number == 2:
+                print("\x1b[91mEZ Clap\x1b[96m")
+
+            else:
+                print("\x1b[91mWooooooooooW\x1b[96m")
+
         rounds_lost += 1
-        result = 0
     
     if result == 1:
-        print("\x1b[92mYou Got A Win Calm Down\x1b[96m")
-        
+        for item in range (0, 1):
+            number = random.randint(1, 3)
+            if number == 1:
+                print("\x1b[92mYou Won (Your still Lonely)\x1b[96m")
+            
+            elif number == 2:
+                print("\x1b[92mY U Bully Me? Everyone Asking..\x1b[96m")
+            
+            else:
+                print("\x1b[92mTry Harder\x1b[96m")
     # rest of loop
 
     rounds_played += 1
@@ -161,14 +177,20 @@ while end_game == "no":
 # quick calculations
 rounds_won = rounds_played - rounds_lost - rounds_drawn
 
-# end of game
+# end of game statements
 print()
 print("***** End Game Summary *****")
 print("Won: {} | Lost: {} | Draw: {}".format(rounds_won, rounds_lost, rounds_drawn))
 if rounds_lost > rounds_won:
-    print("SO BAD")
-elif rounds_won > rounds_lost:
-    print("I'm Set To Easy Mode")
+    for item in range (0, 1):
+            number = random.randint(1, 2)
+            if number == 1:
+                print("GGEZ")
+            
+            else:
+                print("SO BAD")
+if rounds_won > rounds_lost:
+    print("I'm Set To Easy Mode Calm Down")
 print()
-print("I Had Fun \nBye")
+print("Playing Rock Paper Scissors By Yourself? \nSo Lonely...")
 print()
