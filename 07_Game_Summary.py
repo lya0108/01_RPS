@@ -20,3 +20,17 @@ for item in range(0, 5):
 rounds_won = rounds_played - rounds_lost - rounds_drawn
 
 # calculate game stats
+percent_win = rounds_won / rounds_played * 100
+percent_lose = rounds_lost / rounds_played * 100
+percent_tie = rounds_drawn / rounds_played * 100
+
+print()
+print("~~~~~ Game History ~~~~~")
+for game in game_summary:
+    print(game)
+
+print()
+
+# displays game stats with % values to the nearest whole number
+print("===== Game Stats =====")
+print()
