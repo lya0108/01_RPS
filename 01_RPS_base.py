@@ -1,4 +1,6 @@
+from doctest import OutputChecker
 import random
+from urllib import response
 
 # functions
 def check_rounds():
@@ -125,16 +127,17 @@ while end_game == "no":
     # \x1b[0m (code for color)
     if user_choice == comp_choice:
         print("\x1b[93mStop Copying Me!\x1b[96m")
+        result = "Draw"
         rounds_drawn += 1
 
     elif user_choice == "rock" and comp_choice == "scissors":
-        result = 1
+        result = "Win"
 
     elif user_choice == "paper" and comp_choice == "rock":
-        result = 1
+        result = "Win"
 
     elif user_choice == "scissors" and comp_choice == "paper":
-        result = 1
+        result = "Win"
 
     else:
         for item in range (0, 1):
@@ -147,14 +150,14 @@ while end_game == "no":
 
             else:
                 print("\x1b[91mWooooooooooW\x1b[96m")
-
+        result = "Loss"
         rounds_lost += 1
     
-    if result == 1:
+    if result == "Win":
         for item in range (0, 1):
             number = random.randint(1, 3)
             if number == 1:
-                print("\x1b[92mYou Won (Your still Lonely)\x1b[96m")
+                print("\x1b[92mYou Won! No One Cares\x1b[96m")
             
             elif number == 2:
                 print("\x1b[92mY U Bully Me? Everyone Asking..\x1b[96m")
@@ -179,9 +182,30 @@ while end_game == "no":
 rounds_won = rounds_played - rounds_lost - rounds_drawn
 
 # end of game statements
+
 print()
-print("***** End Game Summary *****")
-print("Won: {} | Lost: {} | Draw: {}".format(rounds_won, rounds_lost, rounds_drawn))
+print("Playing Rock Paper Scissors By Yourself? \nSo Lonely...")
+print()
+
+percent_win = rounds_won / rounds_played * 100
+percent_lose = rounds_lost / rounds_played * 100
+percent_tie = rounds_drawn / rounds_played * 100
+
+for item in range(1, response):
+
+    outcome = "round {}: {}".format(item, result)
+
+print()
+print("~~~~~ Game History ~~~~~")
+for outcome in result:
+    print(outcome)
+
+# displays game stats with % values to the nearest whole number
+decorator("Game Stats", "=", "1")
+print("| Win: {} ({:.0f}%)  |\n| Loss: {} ({:.0f}%) |\n| Tie: {} ({:.0f}%)  |".format(rounds_won, percent_win, rounds_lost, percent_lose, rounds_drawn, percent_tie))
+print()
+
+# Computer dialogue
 if rounds_lost > rounds_won:
     for item in range (0, 1):
             number = random.randint(1, 2)
@@ -190,19 +214,8 @@ if rounds_lost > rounds_won:
             
             else:
                 print("SO BAD")
-if rounds_won > rounds_lost:
-    print("I'm Set To Easy Mode Calm Down")
+elif rounds_won > rounds_lost:
+    print("I Went Easy On You")
+else:
+    print("Tch")
 print()
-print("Playing Rock Paper Scissors By Yourself? \nSo Lonely...")
-print()
-percent_win = rounds_won / rounds_played * 100
-percent_lose = rounds_lost / rounds_played * 100
-percent_tie = rounds_drawn / rounds_played * 100
-
-print()
-print("~~~~~ Game History ~~~~~")
-print()
-
-# displays game stats with % values to the nearest whole number
-print("===== Game Stats =====")
-print("Win: {} ({:.0f}%) | \nLoss: {} ({:.0f}%) | \nTie: {}, ({:.0f}%)".format(rounds_won, percent_win, rounds_lost, percent_lose, rounds_drawn, percent_tie))
