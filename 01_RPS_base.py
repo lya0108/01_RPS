@@ -1,6 +1,4 @@
-from doctest import OutputChecker
 import random
-from urllib import response
 
 # functions
 def check_rounds():
@@ -8,27 +6,27 @@ def check_rounds():
         
         print()
         print("Odd Number of Rounds Recommended")
-        response = input("\nRounds: ")
+        num_rounds = input("\nRounds: ")
 
         round_error = "Please Type Either [enter] for Endless Mode\n or an Integer That is More Than 0"
         # check rounds is an integer more than 0 for finite mode
-        if response != "":
+        if num_rounds != "":
             try:
-                response = int(response)
+                num_rounds = int(num_rounds)
 
-                # if response less than 1 go back to start of loop
-                if response < 1:
+                # if num_rounds less than 1 go back to start of loop
+                if num_rounds < 1:
                     print(round_error)
                     print()
                     continue
             
-            # if response is not an integer go back to start of loop
+            # if num_rounds is not an integer go back to start of loop
             except ValueError:
                 print(round_error)
                 print()
                 continue
 
-        return response
+        return num_rounds
 
 def choice_checker(question, valid_list ,error):
 
@@ -76,6 +74,9 @@ decorator(" or press <enter> for endless mode  ", "=", "2")
 # lists of valid responses
 yes_no_list = ["yes", "no"]
 rps_list = ["rock", "paper", "scissors", "xxx"]
+
+# list to hold game history / summary
+game_summary = []
 
 # asks user if thay have played before
 # if 'no' show instructions
@@ -167,6 +168,9 @@ while end_game == "no":
 
     # rest of loop
 
+    outcome = "round {}: {}".format(item, result)
+    game_summary.append(outcome)
+
     rounds_played += 1
 
     # end game if # of rounds requested have been played
@@ -191,14 +195,13 @@ percent_win = rounds_won / rounds_played * 100
 percent_lose = rounds_lost / rounds_played * 100
 percent_tie = rounds_drawn / rounds_played * 100
 
-for item in range(1, response):
 
-    outcome = "round {}: {}".format(item, result)
+
 
 print()
 print("~~~~~ Game History ~~~~~")
-for outcome in result:
-    print(outcome)
+for item in game_summary:
+    print(item)
 
 # displays game stats with % values to the nearest whole number
 decorator("Game Stats", "=", "1")
