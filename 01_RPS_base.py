@@ -68,9 +68,6 @@ def decorator(text, decoration, lines):
 # main routine
 print("\x1b[96m")
 
-decorator("Please pick how many rounds you want", "=", "2")
-decorator(" or press <enter> for endless mode  ", "=", "2") 
-
 # lists of valid responses
 yes_no_list = ["yes", "no"]
 rps_list = ["rock", "paper", "scissors", "xxx"]
@@ -79,8 +76,16 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 game_summary = []
 
 # asks user if thay have played before
-# if 'no' show instructions
+intro = choice_checker("Welcome to Rock Paper Scissors\nIs This Your First Time Playing? ", yes_no_list, "Please Enter Yes or No")
 
+# if 'no' show instructions
+if intro == "no":
+    decorator("How To Play", "~", "1")
+    print()
+    print("")
+
+decorator("Please pick how many rounds you want", "◈", "2")
+decorator(" or press <enter> for endless mode  ", "◈", "2") 
 
 # asks user for # of rounds then loop...
 rounds_played = 0
@@ -97,13 +102,13 @@ while end_game == "no":
     # rounds heading
     print()
     if rounds == "":
-        heading = "Endless Mode: Round {}".format(rounds_played + 1)
+        heading = "◈ Endless Mode: Round {} ◈".format(rounds_played + 1) 
     else:
-        heading = "Round {} of {}".format(rounds_played + 1, rounds)
+        heading = decorator("Round {} of {}".format(rounds_played + 1, rounds), "◈", "1")
 
     print(heading)
     choose_instructions = "Please choose rock (r), paper (p), scissors (s)\nor 'xxx' to exit\n"
-    choose_error = "Please choose from rock / paper / scissors (or 'xxx to exit)"
+    choose_error = "Please choose from rock / paper / scissors (or 'xxx' to exit)"
 
     # asks user for choice and check if valid
     choose = choice_checker(choose_instructions, rps_list, choose_error)
@@ -186,20 +191,20 @@ while end_game == "no":
 rounds_won = rounds_played - rounds_lost - rounds_drawn
 
 # end of game statements
-
 print()
 print("Playing Rock Paper Scissors By Yourself? \nSo Lonely...")
 print()
 
+# represents game stats as percentages
 percent_win = rounds_won / rounds_played * 100
 percent_lose = rounds_lost / rounds_played * 100
 percent_tie = rounds_drawn / rounds_played * 100
 
 
 
-
+# displays round history 
 print()
-print("~~~~~ Game History ~~~~~")
+decorator("Game History", "")
 for item in game_summary:
     print(item)
 
