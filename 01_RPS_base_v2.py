@@ -147,42 +147,23 @@ while end_game == "no":
         rounds_drawn += 1
 
     elif user_choice == "rock" and comp_choice == "scissors":
+        print("\x1b[92mCongratulations, You Win Nothing!\x1b[96m")
         result = "Win"
 
     elif user_choice == "paper" and comp_choice == "rock":
+        print("\x1b[92mCongratulations, You Win Nothing!\x1b[96m")
         result = "Win"
 
     elif user_choice == "scissors" and comp_choice == "paper":
+        print("\x1b[92mCongratulations, You Win Nothing!\x1b[96m")
         result = "Win"
 
     else:
-        for item in range (0, 1):
-            number = random.randint(1, 3)
-            if number == 1:
-                print("\x1b[91mLost To Bot :OMEGALUL:\x1b[96m")
-
-            elif number == 2:
-                print("\x1b[91mEZ Clap\x1b[96m")
-
-            else:
-                print("\x1b[91mWoooooooOooW\x1b[96m")
-        result = "Loss"
-        rounds_lost += 1
-    
-    if result == "Win":
-        for item in range (0, 1):
-            number = random.randint(1, 3)
-            if number == 1:
-                print("\x1b[92mYou Won! No One Cares\x1b[96m")
-            
-            elif number == 2:
-                print("\x1b[92mY U Bully Me? Everyone Asking..\x1b[96m")
-            
-            else:
-                print("\x1b[92mTry Harder\x1b[96m")
+        print("\x1b[91mIm Better\x1b[96m")
+        result ="Lose"
 
     # rest of loop
-    outcome = "round {}: {}".format(item, result)
+    outcome = "round {}: {}".format(rounds_played + 1, result)
     game_summary.append(outcome)
 
     rounds_played += 1
